@@ -1,0 +1,19 @@
+project: banking
+provider: local
+offline_store:
+    host: feast-banking-offline.feast.svc.cluster.local
+    type: remote
+    port: 443
+    scheme: https
+    cert: /var/run/secrets/kubernetes.io/serviceaccount/service-ca.crt
+online_store:
+    path: https://feast-banking-online.feast.svc.cluster.local:443
+    type: remote
+    cert: /var/run/secrets/kubernetes.io/serviceaccount/service-ca.crt
+registry:
+    path: feast-banking-registry.feast.svc.cluster.local:443
+    registry_type: remote
+    cert: /var/run/secrets/kubernetes.io/serviceaccount/service-ca.crt
+auth:
+    type: kubernetes
+entity_key_serialization_version: 3

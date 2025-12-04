@@ -1,0 +1,43 @@
+apiVersion: feast.dev/v1alpha1
+kind: FeatureStore
+metadata:
+  name: banking
+  namespace: feast
+  labels:
+    feature-store-ui: enabled
+spec:
+  authz:
+    kubernetes:
+      roles: []
+  feastProject: banking
+  feastProjectDir:
+    git:
+      featureRepoPath: server_feature_repo
+      ref: yk-eap
+      url: 'https://github.com/aniketpalu/banking-feature-store.git'
+  services:
+    onlineStore:
+      persistence:
+        store:
+          secretRef:
+            name: feast-data-stores
+          type: postgres
+      server:
+        image: quay.io/feastdev/feature-server:0.57.0
+        logLevel: debug
+    offlineStore:
+      server:
+        image: quay.io/feastdev/feature-server:0.57.0
+        logLevel: debug
+    registry:
+      local:
+        persistence:
+          store:
+            secretRef:
+              name: feast-data-stores
+            type: sql
+        server:
+          image: quay.io/feastdev/feature-server:0.57.0
+          logLevel: debug
+          restAPI: true
+    ui: {}
