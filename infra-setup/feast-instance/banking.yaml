@@ -40,4 +40,3 @@ spec:
           image: quay.io/feastdev/feature-server:0.57.0
           logLevel: debug
           restAPI: true
-    ui: {}
