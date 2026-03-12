@@ -1,4 +1,4 @@
-apiVersion: feast.dev/v1alpha1
+apiVersion: feast.dev/v1
 kind: FeatureStore
 metadata:
   name: banking
@@ -7,13 +7,14 @@ metadata:
     feature-store-ui: enabled
 spec:
   authz:
-    kubernetes:
-      roles: []
+    oidc:
+      secretRef:
+        name: feast-oidc-secret
   feastProject: banking
   feastProjectDir:
     git:
       featureRepoPath: server_feature_repo
-      ref: yk-eap
+      ref: oidc-support
       url: 'https://github.com/aniketpalu/banking-feature-store.git'
   services:
     onlineStore:
@@ -23,11 +24,11 @@ spec:
             name: feast-data-stores
           type: postgres
       server:
-        image: quay.io/feastdev/feature-server:0.57.0
+        image: quay.io/aniket-redhat/feature-server:oidc-dev-0.1
         logLevel: debug
     offlineStore:
       server:
-        image: quay.io/feastdev/feature-server:0.57.0
+        image: quay.io/aniket-redhat/feature-server:oidc-dev-0.1
         logLevel: debug
     registry:
       local:
@@ -37,6 +38,6 @@ spec:
               name: feast-data-stores
             type: sql
         server:
-          image: quay.io/feastdev/feature-server:0.57.0
+          image: quay.io/aniket-redhat/feature-server:oidc-dev-0.1
           logLevel: debug
-          restAPI: true
+    restAPI: true

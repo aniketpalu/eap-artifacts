@@ -15,5 +15,5 @@ registry:
     registry_type: remote
     cert: /var/run/secrets/kubernetes.io/serviceaccount/service-ca.crt
 auth:
-    type: kubernetes
+    type: oidc
 entity_key_serialization_version: 3

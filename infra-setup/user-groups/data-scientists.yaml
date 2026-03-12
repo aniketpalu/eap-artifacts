@@ -1,8 +1,0 @@
-apiVersion: user.openshift.io/v1
-kind: Group
-metadata:
-  name: data-scientists
-users:
-  - user5
-  - user6
-  - user7
