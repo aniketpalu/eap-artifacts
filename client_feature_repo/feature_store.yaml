@@ -5,15 +5,18 @@ offline_store:
     type: remote
     port: 443
     scheme: https
-    cert: /var/run/secrets/kubernetes.io/serviceaccount/service-ca.crt
+    cert: /etc/pki/tls/custom-certs/ca-bundle.crt
 online_store:
     path: https://feast-banking-online.feast.svc.cluster.local:443
     type: remote
-    cert: /var/run/secrets/kubernetes.io/serviceaccount/service-ca.crt
+    cert: /etc/pki/tls/custom-certs/ca-bundle.crt
 registry:
     path: feast-banking-registry.feast.svc.cluster.local:443
     registry_type: remote
-    cert: /var/run/secrets/kubernetes.io/serviceaccount/service-ca.crt
+    cert: /etc/pki/tls/custom-certs/ca-bundle.crt
 auth:
     type: oidc
+    client_secret: placeholder
+    password: placeholder
+    username: placeholder
 entity_key_serialization_version: 3
