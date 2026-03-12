@@ -40,4 +40,4 @@ spec:
         server:
           image: quay.io/aniket-redhat/feature-server:oidc-dev-0.1
           logLevel: debug
-    restAPI: true
+          restAPI: true
