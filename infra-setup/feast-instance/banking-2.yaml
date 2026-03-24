@@ -10,6 +10,7 @@ spec:
     oidc:
       secretRef:
         name: feast-oidc-secret
+      verifySSL: false
   feastProject: banking
   feastProjectDir:
     git:
