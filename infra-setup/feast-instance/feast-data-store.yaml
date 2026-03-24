@@ -12,9 +12,10 @@ stringData:
     db_schema: public
     user: feast
     password: feast
+    sslmode: disable
 
   sql: |
-    path: postgresql+psycopg://feast:feast@postgres.feast.svc.cluster.local:5432/feast
+    path: postgresql+psycopg://feast:feast@postgres.feast.svc.cluster.local:5432/feast?sslmode=disable
     cache_ttl_seconds: 60
     sqlalchemy_config_kwargs:
       echo: false
