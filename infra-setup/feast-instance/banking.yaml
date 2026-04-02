@@ -25,11 +25,11 @@ spec:
             name: feast-data-stores
           type: postgres
       server:
-        image: quay.io/aniket-redhat/feature-server:oidc-dev-0.6
+        image: quay.io/aniket-redhat/feature-server:oidc-dev-0.7
         logLevel: debug
     offlineStore:
       server:
-        image: quay.io/aniket-redhat/feature-server:oidc-dev-0.6
+        image: quay.io/aniket-redhat/feature-server:oidc-dev-0.7
         logLevel: debug
     registry:
       local:
@@ -39,5 +39,5 @@ spec:
               name: feast-data-stores
             type: sql
         server:
-          image: quay.io/aniket-redhat/feature-server:oidc-dev-0.6
+          image: quay.io/aniket-redhat/feature-server:oidc-dev-0.7
           logLevel: debug
